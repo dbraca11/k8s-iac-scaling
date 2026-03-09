@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pagos-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: banca
+  template:
+    metadata:
+      labels:
+        app: banca
+    spec:
+      containers:
+      - name: api-pagos
+        image: nginx
+        ports:
+        - containerPort: 80
